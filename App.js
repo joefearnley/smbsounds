@@ -1,19 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { mapping, light as lightTheme } from '@eva-design/eva';
+import { ApplicationProvider } from 'react-native-ui-kitten';
+import { RootComponent } from '../path-to/root.component'; // <-- Import your application entry point
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>This s a test.</Text>
-    </View>
-  );
-}
+const App = () => (
+  <ApplicationProvider
+    mapping={mapping}
+    theme={lightTheme}>
+    <RootComponent />
+  </ApplicationProvider>
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
