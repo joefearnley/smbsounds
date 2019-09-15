@@ -1,7 +1,7 @@
 import React from 'react';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider } from 'react-native-ui-kitten';
-import { RootComponent } from '../path-to/root.component'; // <-- Import your application entry point
+//import { RootComponent } from '../path-to/root.component'; // <-- Import your application entry point
 
 const App = () => (
   <ApplicationProvider
@@ -11,4 +11,4 @@ const App = () => (
   </ApplicationProvider>
 );
 
-export default App;
+    export default App;
