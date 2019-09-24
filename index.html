@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<ons-page>
+    <ons-toolbar>
+        <div class="center">SMB 3 Sounds</div>
+    </ons-toolbar>
+
+    <ons-list>
+        <ons-list-item data-clip="one">Item A</ons-list-item>
+        <ons-list-item data-clip="two">Item B</ons-list-item>
+    </ons-list>
+</ons-page>
+
+</body>
+
+<script>
+const playClip = (clip) => {
+    const player = new Audio(clip);
+    player.play();
+};
+
+const sounds = [];
+
+document.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    if (event.target.matches('.list-item__center')) {
+        const parent = event.target.parentNode;
+        let clip = parent.getAttribute('data-clip');
+        if (clip) {
+            playClip(clip);
+        }
+    }
+}, false);
+</script>
+
+</html>
