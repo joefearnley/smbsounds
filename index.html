@@ -4,24 +4,97 @@
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 </head>
 <body>
+
+<ons-page>
     <ons-toolbar>
         <div class="center">SMB 3 Sounds</div>
     </ons-toolbar>
 
-    <ons-button id="click-me" onclick="alert('Hello World!')">Click Me</ons-button>
+    <ons-list>
+        <ons-list-item data-sound="1up.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">One Up</div>
+        </ons-list-item>
+        <ons-list-item data-sound="coin.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Coin</div>
+        </ons-list-item>
+        <ons-list-item data-sound="bump.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Bump</div>
+        </ons-list-item>
+        <ons-list-item data-sound="jump.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Jump</div>
+        </ons-list-item>
+        <ons-list-item data-sound="fireball.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Fireball</div>
+        </ons-list-item>
+        <ons-list-item data-sound="lost_life.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Lost Life</div>
+        </ons-list-item>
+        <ons-list-item data-sound="pause.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Pause</div>
+        </ons-list-item>
+        <ons-list-item data-sound="game_over.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Game Over</div>
+        </ons-list-item>
+        <ons-list-item data-sound="level_clear.wav" tappable>
+            <div class="left">
+                <ons-icon icon="md-play" class="list-item__icon"></ons-icon>
+            </div>
+            <div class="center">Level Clear</div>
+        </ons-list-item>
+    </ons-list>
+</ons-page>
+
 </body>
 
 <script>
-document.querySelector('#click-me').addEventListener('click', () => {
-    ons.notification.alert('Alert!');
-});
+const playClip = (clip) => {
+    const player = new Audio(clip);
+    player.play();
+};
 
 const sounds = [
   
 ];
 
+document.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    if (event.target.matches('.list-item__center')) {
+        const parent = event.target.parentNode;
+        let sound = `./sounds/${parent.getAttribute('data-sound')}`;
+        if (sound) {
+             playClip(sound);
+        }
+    }
+}, false);
 </script>
 
 </html>
