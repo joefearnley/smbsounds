@@ -1,0 +1,19 @@
+{
+  "name": "smbsounds",
+  "version": "1.0.0",
+  "description": "Super Mario Brothers Soundboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joefearnley/smbsounds.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joefearnley/smbsounds/issues"
+  },
+  "homepage": "https://github.com/joefearnley/smbsounds#readme"
+}
