@@ -75,26 +75,30 @@
 </body>
 
 <script>
-const playClip = (clip) => {
-    const player = new Audio(clip);
-    player.play();
-};
-
 const sounds = [
-  
+  '1up.wav',
+  'coin.wav',
+  'bump.wav',
+  'jump.wav',
+  'lost_life.wav',
+  'fireball.wav',
+  'pause.wav',
+  'game_over.wav',
+  'level_clear.wav'
 ];
 
-document.addEventListener('click', function (event) {
-    event.preventDefault();
+document.addEventListener('click', e => {
+  e.preventDefault();
 
-    if (event.target.matches('.list-item__center')) {
-        const parent = event.target.parentNode;
-        let sound = `./sounds/${parent.getAttribute('data-sound')}`;
-        if (sound) {
-             playClip(sound);
-        }
+  if (event.target.matches('.list-item__center')) {
+    let file = event.target.parentNode.getAttribute('data-sound');
+    if (!!file) {
+      file = `./sounds/${file}`;
+      const player = new Audio(file);
+      player.play();
     }
-}, false);
+  }
+});
 </script>
 
 </html>
